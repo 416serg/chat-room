@@ -30,14 +30,33 @@
 </template>
 
 <template name="lobby">
+  <input type="text" id="room-name" placeholder="Create a new room" style="width: 50%; margin-bottom: 0px">
+  <input type="button" value="Create" class="btn btn-primary" id="create-room">
   <h4>Join a room:</h4>
+  {{#if rooms}}
   <ul>
   {{#each rooms}}
-      {{> room}}
+    <li><a href="/room/{{roomname}}">{{roomname}}</a></li>
   {{/each}}
   </ul>
+  {{else}}
+    <p>
+      No rooms yet, go ahead and create one!
+    </p>
+  {{/if}}
 </template>
 
 <template name="room">
-    <li><a href="#" ></a>{{roomname}}</li>
+  <h4>Room: {{roomname}} <a href="{{pathFor 'lobby'}}">(back to lobby)</a></h4>
+  <input type="text" id="msg" placeholder="Your message goes here..." style="width: 50%; margin-bottom: 0px">
+  <input type="button" value="Send message" id="send-message" class="btn btn-primary">
+  <div id="messages">
+      {{#each messages}}
+          {{> message}}
+      {{/each}}
+  </div>
+</template>
+
+<template name="message">
+    <p><strong>{{user}}</strong> <span style="font-size: 0.7em; color: darkgray">({{timestamp}})</span>: <i>{{msg}}</i></p>
 </template>
