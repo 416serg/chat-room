@@ -9,5 +9,8 @@ standard-app-packages
 bootstrap
 accounts-ui
 accounts-password
+accounts-google
+
+fezvrasta:bootstrap-material-design
 
 iron:router
