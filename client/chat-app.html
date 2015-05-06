@@ -29,8 +29,8 @@
 
 <template name="lobby">
   {{#if currentUser}}
-  <input type="text" id="room-name" placeholder="Create a new room" style="width: 50%; margin-bottom: 0px">
-  <input type="button" value="Create" class="btn btn-primary" id="create-room">
+    <input type="text" id="room-name" placeholder="Create a new room" class="form-control floating-label" style="width: 50%; margin-bottom: 0px">
+    <input type="button" value="Create" class="btn btn-primary" id="create-room">
   {{/if}}
   <h4>Join a room:</h4>
   {{#if rooms}}
@@ -49,7 +49,7 @@
 <template name="room">
   <h4>Room: {{roomname}} <a href="{{pathFor 'lobby'}}">(back to lobby)</a></h4>
   {{#if currentUser}}
-    <input type="text" id="msg" placeholder="Your message goes here..." style="width: 50%; margin-bottom: 0px">
+    <input type="text" id="msg" class="form-control floating-label" placeholder="Your message goes here..." style="width: 50%; margin-bottom: 0px">
     <input type="button" value="Send message" id="send-message" class="btn btn-primary">
   {{/if}}
   <div id="messages">
