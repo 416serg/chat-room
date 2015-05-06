@@ -1,0 +1,43 @@
+<template name="layout">
+  <head>
+    <title>chat-app</title>
+  </head>
+
+  <body>
+      {{> header}}
+    <div class="container-fluid">
+      {{> yield}}
+    </div>
+  </body>
+</template>
+
+<template name="header">
+  <div class="navbar navbar-fixed-top">
+      <div class="navbar-inner">
+          <a class="brand" href="#">Meteor chat</a>
+          <ul class="nav pull-right">
+              <li><a>{{> loginButtons align="right"}}</a></li>
+          </ul>
+      </div>
+  </div>
+</template>
+
+<template name="welcome">
+  <div class="hero-unit">
+      <h1>Welcome to MeteorChat</h1>
+      <p>Please login!</p>
+  </div>
+</template>
+
+<template name="lobby">
+  <h4>Join a room:</h4>
+  <ul>
+  {{#each rooms}}
+      {{> room}}
+  {{/each}}
+  </ul>
+</template>
+
+<template name="room">
+    <li><a href="#" ></a>{{roomname}}</li>
+</template>
